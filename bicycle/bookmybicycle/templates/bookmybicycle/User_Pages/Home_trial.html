@@ -7,13 +7,15 @@
 </head>
 
 <body style="background-color: rgba(100,100,0,0.1);">
+
   {% include 'ext_includes/nav.html' %}
 
-<!-- <div class="clear_bg">
+  <div class="clear_bg">
+  <img class="clear-image" src="{% static 'bookmybicycle/delete.jpeg' %}">
 
-  <img class="clear-image" src="{% static 'bookmybicycle/delete.jpg' %}"> -->
+  {% if user.is_authenticated %}
 
-  <div class="log card container">
+  <div class="log card container book_form" style="margin-top: 100px;">
     <h1>Let's Ride</h1>
     <form class="yessss" action="{% url 'book_bicycle' %}" method="post">
       {% csrf_token %}
@@ -90,7 +92,7 @@
 
             </select>
           </div>
-          <div class="row container-fluid">
+          <div class="row">
             <div class="form-group col-sm-6">
               <label for="to_date">Date</label>
               <input type="text" id="to_datepicker" name="to_date" required>
@@ -104,9 +106,14 @@
 
       </div>
       <div style="text-align: center;" class="">
-        <button type="submit" class="btn btn-primary">Sign in</button>
-
-        <!-- <input type="submit" value="Book"> -->
+        <div class="">
+          <input type="submit" value="Book">
+        </div>
+        {% if nocycle %}
+        <div class="alert alert-danger">
+          Cycles not available
+        </div>
+        {% endif %}
       </div>
     </form>
     <div class="">
@@ -114,11 +121,24 @@
     </div>
   </div>
 
-  <!-- </div>
-  <canvas class="loginFun" width="792" height="700"></canvas>
-  <script type="text/javascript" src="{%static 'bookmybicycle/delete5.js' %}">
+  </div>
 
-  </script> -->
+  <script type="text/javascript" src="{%static 'bookmybicycle/delete5.js' %}"></script>
+
+  {% else %}
+  <script>
+      function redirect(){
+         window.location.href = "{% url 'login' %}";
+      }
+
+      setTimeout(redirect, 5000);
+  </script>
+  <div class="container" style="padding-top: 100px; color: red;">
+      <h3><b>You need to login first!</b></h3>
+      <p>You will be redirected to login page in a few seconds!</p>
+
+    {% endif %}
+  </div>
 </body>
 
 </html>

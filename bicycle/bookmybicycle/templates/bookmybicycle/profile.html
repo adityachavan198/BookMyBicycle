@@ -1,58 +1,79 @@
 {% include 'ext_includes/header.html' %}
 {% load static %}
 
-	<script type="text/javascript" src="{% static 'bookmybicycle\js\state.js' %}"></script>
-	<title>Register</title>
-	<link rel="stylesheet" href="{% static 'bookmybicycle/css/styleLogin.css' %}">
-  <style media="screen">
-    #profile{
-      border-radius: 50%;
-      text-align: center;
-    }
-  </style>
-
+<script type="text/javascript" src="{% static 'bookmybicycle\js\state.js' %}"></script>
+<title>Profile</title>
+<link rel="stylesheet" href="{% static 'bookmybicycle/css/styleLogin.css' %}">
+<link rel="stylesheet" href="{% static 'bookmybicycle/delete5.css' %}">
 </head>
+
 <body style="background-color: rgba(100,100,0,0.1);">
 
-{% include 'ext_includes/nav.html' %}
+	{% include 'ext_includes/nav.html' %}
 
-	<div style="text-align: center;">
+	<div class="clear_bg">
+  <img class="clear-image" src="{% static 'bookmybicycle/delete.jpeg' %}">
+
+	<div style="margin-top: 80px;height:560px;width:590px" class="log card container book_form">
+
+		<div class="row">
+			<div class="row">
+				<div class="col-sm-8">
+					<img class="img-circle" height="150px" src="{% static 'bookmybicycle/images/1.jpeg' %}" alt="profile" id="profile">
+				</div>
+				<div class="col-sm-4">
+					<button type="submit" name="delete" class="btn-danger btn">Delete Account</button>
+				</div>
+			</div>
+			<span><h5>Your Bookings</h5></span>
+			<div style="overflow-y:auto; height:320px;">
+				<table style="font-size:15px;" class="table table-hover" >
+					<thead>
+						<tr>
+							<th colspan=3>From</th>
+							<th colspan=3>To</th>
+						</tr>
+						<tr>
+							<th>State</th>
+							<th>City</th>
+							<th>Location</th>
+							<th>State</th>
+							<th>City</th>
+							<th>Location</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% if  my_rides|length > 0 %}
+						{% for ride in my_rides %}
+							<tr>
+								<td>{{ ride.from_state }}</td>
+								<td>{{ ride.from_city }}</td>
+								<td>{{ ride.from_loc }}</td>
+								<td>{{ ride.to_state }}</td>
+								<td>{{ ride.to_city }}</td>
+								<td>{{ ride.to_loc }}</td>
+							</tr>
+						{% endfor %}
+						{% else %}
+							<tr>
+								<td colspan="6">NO BOOKINGS YET</td>
+							</tr>
+						{% endif %}
+					</tbody>
+				</table>
+			</div>
+		</div>
 
 	</div>
-	<center>
-		<div class="row">
-			<div class="col-sm-2">
 
-			</div>
-			<div class="log card col-sm-8">
-				<div class="row">
-					<div class="col-sm-4">
-						<img src="{% static 'bookmybicycle/images/profile.png' %}" style="width: 200px; height: 200px;" alt="profile" id="profile">
-					</div>
-					<div class="col-sm-4">
+	<div style="padding: 30px;text-align:center;">
+		<a id="dum" style="padding-right:0px; text-decoration:none;color: green;" href="http://www.hscripts.com">&copy;h</a>
+		, &copyCopyright, 2018
+	</div>
 
+	</div>
 
-					</div>
-        </div>
-        <div class="row">
-					<div class="col-sm-4" style="margin-left: 18px;">
-						<button type="submit" name="delete" class="btn btn-danger" formaction="{% url 'del' %}">Delete Account</button>
-
-					</div>
-        </div>
-
-			</div>
-			<div class="col-sm-2">
-
-			</div>
-		</div>
-		<hr>
-		<div style="padding: 30px;">
-			<a id="dum" style="padding-right:0px; text-decoration:none;color: green;text-align:center;" href="http://www.hscripts.com">&copy;h</a>
-			, &copyCopyright, 2018
-		</div>
-	</center>
-
+	<script type="text/javascript" src="{%static 'bookmybicycle/delete5.js' %}"></script>
 </body>
 
 </html>

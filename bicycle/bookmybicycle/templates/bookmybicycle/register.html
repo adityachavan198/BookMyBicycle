@@ -4,26 +4,27 @@
 	<script type="text/javascript" src="{% static 'bookmybicycle\js\state.js' %}"></script>
 	<title>Register</title>
 	<link rel="stylesheet" href="{% static 'bookmybicycle/css/styleLogin.css' %}">
+	<link rel="stylesheet" href="{% static 'bookmybicycle/delete5.css' %}">
 
 </head>
 <body style="background-color: rgba(100,100,0,0.1);">
 
 {% include 'ext_includes/nav.html' %}
+<div class="clear_bg" style="padding-top: 80px;">
+<img class="clear-image" src="{% static 'bookmybicycle/delete.jpeg' %}">
 
 	<div style="text-align: center;">
 
-	</div>
-	<center>
 		<div class="row">
 			<div class="col-sm-2">
 
 			</div>
-			<div class="log card col-sm-8">
+			<div class="log book_form card col-sm-8">
 
 				<form action="{% url 'success' %}" method="post">
 					{% csrf_token %}
 					<div class="form-row">
-						<h2>REGISTER HERE!!</h2>
+						<h4>REGISTER HERE</h4>
 						<div class="form-group col-sm-6 col-xs-12">
 							<label for="fname">First Name</label>
 							<input type="text" class="form-control" id="fname" name="fname" placeholder="First Name">
@@ -86,12 +87,16 @@
 
 			</div>
 		</div>
-		<hr>
-		<div style="padding: 30px;">
-			<a id="dum" style="padding-right:0px; text-decoration:none;color: green;text-align:center;" href="http://www.hscripts.com">&copy;h</a>
-			, &copyCopyright, 2018
-		</div>
-	</center>
+
+
+	<script type="text/javascript" src="{%static 'bookmybicycle/delete5.js' %}"></script>
+</div>
+	{# <hr> #}
+	<div style="padding: 30px;text-align:center; color:black;">
+		<a id="dum" style="padding-right:0px; text-decoration:none;color: green;" href="http://www.hscripts.com">&copy;h</a>
+		, &copyCopyright, 2018
+	</div>
+</div>
 
 </body>
 

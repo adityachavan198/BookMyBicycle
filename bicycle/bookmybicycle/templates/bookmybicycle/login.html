@@ -2,6 +2,7 @@
 {% load static %}
 	<title>Login</title>
 	<link rel="stylesheet" href="{% static 'bookmybicycle/css/styleLogin.css' %}">
+	<link rel="stylesheet" href="{% static 'bookmybicycle/delete5.css' %}">
 
 
 </head>
@@ -10,6 +11,9 @@
 {% include 'ext_includes/nav.html' %}
 
 
+  <div class="clear_bg">
+  <img class="clear-image" src="{% static 'bookmybicycle/delete.jpeg' %}">
+
 		<div style="text-align: center;">
 			<div class="row">
 		<!-- <center> -->
@@ -17,7 +21,7 @@
 
 		</div>
 		{% block body %}
-		<div class="log card col-sm-8">
+		<div style="margin-top:100px;" class="log book_form card col-sm-8">
 			{% if registered %}
 			<div class="alert alert-success">
 			<b>Success!</b> Activate your account by clicking the activation link sent to your email address!
@@ -31,7 +35,7 @@
 				<form action="{% url 'welcomeuser' %}" method="post">
 					{% csrf_token %}
 				  <div class="form-row">
-						<h3>LOG IN</h3>
+						<h4>LOG IN</h4>
 				    <div class="form-group col-sm-12">
 				      <label for="email">Email</label>
 				      <input type="email" class="form-control" name="email" id="email" placeholder="Email">
@@ -56,11 +60,13 @@
 			</div>
 		</div>
 		</div>
-		<hr>
-		<div style="padding: 30px;">
+		{# <hr> #}
+		<div style="padding: 30px;color:black; text-align:center;">
 			Copyright 2018
 		</div>
 	<!-- </center> -->
+</div>
 
+<script type="text/javascript" src="{%static 'bookmybicycle/delete5.js' %}"></script>
 	</body>
 </html>

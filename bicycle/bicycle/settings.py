@@ -32,7 +32,7 @@ AUTH_USER_MODEL = 'bookmybicycle.UserOfApp'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'bookmybicycle@gmail.com'
-EMAIL_HOST_PASSWORD = 'bicycle123'
+EMAIL_HOST_PASSWORD = 'Bicycle321'
 EMAIL_PORT = 587
 
 
@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'bicycle.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-   'default': {
+     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bicycle',
+        'NAME': 'bookmybicycle',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
