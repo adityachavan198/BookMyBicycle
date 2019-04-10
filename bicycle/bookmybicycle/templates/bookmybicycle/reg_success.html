@@ -1,0 +1,27 @@
+{% include 'ext_includes/header.html' %}
+{% load static %}
+
+    <title>Registration Successfull</title>
+    <link rel="stylesheet" href="{% static 'bookmybicycle/css/style.css' %}">
+
+</head>
+<body style="background-color: rgba(100,100,0,0.1);">
+
+{% include 'ext_includes/nav.html' %}
+<script>
+    function redirect(){
+       window.location.href = "{% url 'login' %}";
+    }
+
+    setTimeout(redirect, 5000);
+</script>
+
+    <br>
+    <br>
+        <div class="container">
+            <h3><b>Registration Successfull</b></h3>
+            <p>You will be redirected to login page in a few seconds!</p>
+        </div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+{% include 'ext_includes/header.html' %}
+{% load static %}
+
+	<script type="text/javascript" src="{% static 'bookmybicycle\js\state.js' %}"></script>
+	<title>Register</title>
+	<link rel="stylesheet" href="{% static 'bookmybicycle/css/styleLogin.css' %}">
+
+</head>
+<body style="background-color: rgba(100,100,0,0.1);">
+
+{% include 'ext_includes/nav.html' %}
+
+	<div style="text-align: center;">
+
+	</div>
+	<center>
+		<div class="row">
+			<div class="col-sm-2">
+
+			</div>
+			<div class="log card col-sm-8">
+
+				<form action="{% url 'success' %}" method="post">
+					{% csrf_token %}
+					<div class="form-row">
+						<h2>REGISTER HERE!!</h2>
+						<div class="form-group col-sm-6 col-xs-12">
+							<label for="fname">First Name</label>
+							<input type="text" class="form-control" id="fname" name="fname" placeholder="First Name">
+						</div>
+						<div class="form-group col-sm-6">
+							<label for="lname">Last Name</label>
+							<input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-sm-6">
+							<label for="inputEmail4">Email</label>
+							<input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">
+						</div>
+						<div class="form-group col-sm-6">
+							<label for="inputPassword4">Password</label>
+							<input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password">
+						</div>
+					</div>
+					<div class="form-group col-sm-12">
+						<label for="inputAddress">Address</label>
+						<input type="text" class="form-control" id="inputAddress" name="address" placeholder="1234 Main St, Apartment, studio, or floor">
+					</div>
+					<!-- <div class="form-group col-sm-12">
+				    <label for="inputAddress2">Address 2</label>
+				    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+				  </div> -->
+					<div class="form-row">
+						<div class="form-group col-sm-3">
+							<label for="inputState">State</label>
+							<!-- <select id="inputState" class="form-control">
+								<option selected>Choose...</option>
+								<option>...</option> -->
+								<select id="listBox" onchange='selct_district(this.value)' name="state" class="form-control"></select>
+				        <!-- <select id='secondlist'></select> -->
+							</select>
+						</div>
+						<div class="form-group col-sm-3">
+							<label for="inputCity">City</label>
+							<!-- <input type="text" class="form-control" id="inputCity"> -->
+							<select id='secondlist' class="form-control" name="city">
+								<option selected>Choose State First</option>
+							</select>
+						</div>
+						<div class="form-group col-sm-3">
+							<label for="inputZip">Zip</label>
+							<input type="text" class="form-control" id="inputZip"  name="zip" placeholder="Enter 6 digit Pincode"pattern="[0-9]{6}">
+						</div>
+						<div class="form-group col-sm-3">
+							<label for="phoneno">Contact Number</label>
+							<input type="tel" class="form-control" id="phoneno" pattern="[7-9]{1}[0-9]{9}" name="phone" placeholder="Enter 10 digit Number"required />
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary">Sign Up</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-sm-2">
+
+			</div>
+		</div>
+		<hr>
+		<div style="padding: 30px;">
+			<a id="dum" style="padding-right:0px; text-decoration:none;color: green;text-align:center;" href="http://www.hscripts.com">&copy;h</a>
+			, &copyCopyright, 2018
+		</div>
+	</center>
+
+</body>
+
+</html>

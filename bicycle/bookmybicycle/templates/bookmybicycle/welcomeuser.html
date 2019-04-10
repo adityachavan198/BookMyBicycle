@@ -1,0 +1,19 @@
+{% include 'ext_includes/header.html' %}
+{% load static %}
+
+<title>Login</title>
+		<link rel="stylesheet" href="{% static 'bookmybicycle/css/navbar.css' %}">
+	</head>
+	<body style="background-color: rgba(100,100,0,0.1);">
+
+	{% include 'ext_includes/nav.html' %}
+
+<br><br><br>
+  {% if user.is_authenticated %}
+    <h3> Welcome {{user.username}} ! </h3>
+  {% else %}
+    <h3>You are not logged in!</h3>
+  {% endif %}
+    <!-- <h3>{{emailid}}</h3> -->
+  </body>
+</html>

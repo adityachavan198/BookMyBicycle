@@ -1,0 +1,124 @@
+{% include 'ext_includes/header.html' %}
+{% load static %}
+<title>Trial</title>
+<link rel="stylesheet" href="{% static 'bookmybicycle/css/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'bookmybicycle/css/styleLogin.css' %}">
+<link rel="stylesheet" href="{% static 'bookmybicycle/delete5.css' %}">
+</head>
+
+<body style="background-color: rgba(100,100,0,0.1);">
+  {% include 'ext_includes/nav.html' %}
+
+<!-- <div class="clear_bg">
+
+  <img class="clear-image" src="{% static 'bookmybicycle/delete.jpg' %}"> -->
+
+  <div class="log card container">
+    <h1>Let's Ride</h1>
+    <form class="yessss" action="{% url 'book_bicycle' %}" method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="">
+            <h4>From</h4>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="from_state">State</label>
+              <select class="form-control" id="from_state" name="from_state" required>
+                {% for state in states %}
+                  <option val="state"> {{ state }} </option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="from_city">City</label>
+              <select class="form-control" id="from_city" name="from_city" required>
+
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group container-fluid">
+            <label for="from_location">Location</label>
+            <select class="form-control" id="from_location" name="from_location" required>
+
+            </select>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="from_date">Date</label>
+              <input type="text" id="from_datepicker" name="from_date" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="from_time">Time</label>
+              <input type="text" id="timepicker" name="from_time" required>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="">
+            <br><br><br>
+            <h4><span class="glyphicon glyphicon-refresh align-middle"></span></h4>
+            <br><br><br>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <div class="">
+            <h4>To</h4>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="to_state">State</label>
+              <select class="form-control" id="to_state" name="to_state" required>
+                {% for state in states %}
+                  <option val="state"> {{ state }} </option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="to_city">City</label>
+              <select class="form-control" id="to_city" name="to_city" required>
+
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group container-fluid">
+            <label for="to_location">Location</label>
+            <select class="form-control" id="to_location" name="to_location" required>
+
+            </select>
+          </div>
+          <div class="row container-fluid">
+            <div class="form-group col-sm-6">
+              <label for="to_date">Date</label>
+              <input type="text" id="to_datepicker" name="to_date" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="to_time">Time</label>
+              <input type="text" id="timepicker" name="to_time" required>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div style="text-align: center;" class="">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+
+        <!-- <input type="submit" value="Book"> -->
+      </div>
+    </form>
+    <div class="">
+      <img src="" alt="" id="Wheel">
+    </div>
+  </div>
+
+  <!-- </div>
+  <canvas class="loginFun" width="792" height="700"></canvas>
+  <script type="text/javascript" src="{%static 'bookmybicycle/delete5.js' %}">
+
+  </script> -->
+</body>
+
+</html>
